@@ -1,0 +1,50 @@
+﻿@model ProductManagement.Application.DTOs.ProductDto
+
+@{
+    ViewData["Title"] = "Edit Product";
+}
+
+<div class="container mt-5">
+    <h1 class="text-primary">Edit Product</h1>
+    <form asp-action="Edit" method="post" class="mt-4">
+        <input type="hidden" asp-for="Id" />
+
+        <div class="mb-3">
+            <label for="Name" class="form-label">Name</label>
+            <input type="text" class="form-control" asp-for="Name" required>
+        </div>
+
+        <div class="mb-3">
+            <label for="Category" class="form-label">Category</label>
+            <select class="form-select" asp-for="Category" required>
+                <option value="">Select a category</option>
+                <option value="Electronics">Electronics</option>
+                <option value="Furniture">Furniture</option>
+                <option value="Clothing">Clothing</option>
+                <option value="Books">Books</option>
+                <option value="Toys">Toys</option>
+            </select>
+        </div>
+
+        <div class="mb-3">
+            <label for="IsAvailable" class="form-label">Is Available</label>
+            <select class="form-select" asp-for="IsAvailable">
+                <option value="true">Yes</option>
+                <option value="false">No</option>
+            </select>
+        </div>
+
+        <div class="mb-3">
+            <label for="Description" class="form-label">Description</label>
+            <textarea class="form-control" asp-for="Description" rows="3"></textarea>
+        </div>
+
+        <div class="mb-3">
+            <label for="Price" class="form-label">Price</label>
+            <input type="number" class="form-control" asp-for="Price" step="0.01" required>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Update Changes</button>
+        <a href="/Product" class="btn btn-secondary">Cancel</a>
+    </form>
+</div>

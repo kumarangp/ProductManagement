@@ -1,0 +1,53 @@
+@ProductManagement.API_HostAddress = http://localhost:5086
+
+GET {{ProductManagement.API_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
+### Get all products
+GET {{ProductManagement.API_HostAddress}}/api/Product
+Accept: application/json
+
+###
+
+### Get a product by ID
+GET {{ProductManagement.API_HostAddress}}/api/Product/12
+Accept: application/json
+
+###
+
+### Create a new product
+POST {{ProductManagement.API_HostAddress}}/api/Product
+Content-Type: application/json
+
+{
+  "name": "Test Product",
+  "category": "Electronics",
+  "isAvailable": true,
+  "description": "This is a test product description",
+  "price": 25.50
+}
+
+###
+
+### Update an existing product
+PUT {{ProductManagement.API_HostAddress}}/api/Product/1
+Content-Type: application/json
+
+{
+  "id": 1,
+  "name": "Updated Test Product",
+  "category": "Electronics",
+  "isAvailable": false,
+  "description": "Updated description of the test product",
+  "price": 22.75
+}
+
+###
+
+### Delete a product by ID
+DELETE {{ProductManagement.API_HostAddress}}/api/Product/1
+
+### 
+### Test Error Handling
+GET {{ProductManagement.API_HostAddress}}/api/Product/9999
